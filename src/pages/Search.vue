@@ -24,7 +24,7 @@ export default {
 <style lang="less" scoped>
 .search{
     // 头部搜索
-    background-color: red;
+    background-color: #f2f2f2;
   .header{
     width: 100%;
     // height: 45px;

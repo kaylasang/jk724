@@ -5,11 +5,10 @@
      <div class="h-img-box">
        <img class="menu-icon" src="../assets/logo.png" alt="" />
      </div>
-     <div class="text-inp">
+     <router-link :to="{name:'search'}" tag="div" class="text-inp">
        <img class="search-icon" src="../assets/search.png" />
-       <input type="text" placeholder="搜索商品" />
-       <router-link to="Search"></router-link>
-     </div>
+       <input type="text" placeholder="搜索商品" readonly/>
+     </router-link>
    </header>
    <!-- 轮播图 -->
    <section class="swiper-box">

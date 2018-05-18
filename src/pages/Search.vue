@@ -8,27 +8,59 @@
         <img class="search-icon" src="../assets/search.png" />
         <input type="text" placeholder="搜索商品" />
         </div>
-        <div class="cancelBtn-box">
+        <div @click="toHome" class="cancelBtn-box">
          <span class="cancelBtn">取消</span>
         </div>
       </header>
+      <section class="history">
+        <div class="h-title">
+          历史搜索:
+          <img class="del-icon" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB0AAAAcCAYAAACdz7SqAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyJpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMy1jMDExIDY2LjE0NTY2MSwgMjAxMi8wMi8wNi0xNDo1NjoyNyAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENTNiAoV2luZG93cykiIHhtcE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6MjcxMDU1RDgzMEFDMTFFN0I1MzRDM0E5QkRBMzcwQzIiIHhtcE1NOkRvY3VtZW50SUQ9InhtcC5kaWQ6MjcxMDU1RDkzMEFDMTFFN0I1MzRDM0E5QkRBMzcwQzIiPiA8eG1wTU06RGVyaXZlZEZyb20gc3RSZWY6aW5zdGFuY2VJRD0ieG1wLmlpZDoyNzEwNTVENjMwQUMxMUU3QjUzNEMzQTlCREEzNzBDMiIgc3RSZWY6ZG9jdW1lbnRJRD0ieG1wLmRpZDoyNzEwNTVENzMwQUMxMUU3QjUzNEMzQTlCREEzNzBDMiIvPiA8L3JkZjpEZXNjcmlwdGlvbj4gPC9yZGY6UkRGPiA8L3g6eG1wbWV0YT4gPD94cGFja2V0IGVuZD0iciI/Pm8kUe8AAAHCSURBVHja1JbNK4RBHMeflWexai1t9uSwaU/+AfEPyL8g5WIvXIWLk+IicXDmoBwoF4WDHOQlXCSKKK8H7ynssl6+U9+tMa3d2Z3xyK8+Nc/MM/Odmd9vfjO+eDzueG1Fzh9YcQF9ykEN8IEA8IMjcPVbK+0A12Af7IEtsAou2WZdNAiGQTdXWkXCFOznyq2KNgEXjINzcE9uwRQIgfZ8fToAapX2SvAGSkAj63bBMUjx25X6iZ1oAaf0fYL90yZ83yuLnjE4IqAVvIBJ8MD2zSyTX89QF+Y4ItA2wA41vq10TCpXM1C6DE/HJ6gDDTo+PaGvTO0GXOgGkl9jwAjJZa+6omX0b9p8DCbZxNHpUepc0yMTlMoiIKaV9lJlIuJILZmKppTUF8oxlkgUFaaiT1I54Fg03YzkeiUqCz16JRpQDvn/vsR1RUUkJ3P8I5L7h82Xwwwva3Ui8qTnwYGJaEL5viOyTSjp8pnXXsGiSY1d2NYY35+PT8UdGrUQM9FMD7afRBdBM4gZCMY4xoLu9i6DWbAChsAafaZj4nzX8wEwl49o+mbpBG2gj0lfx8TkDsEgGM2UWLKJvoMRYtW+BBgAiOdVPRI0ty0AAAAASUVORK5CYII="/>
+        </div>
+        <div class="h-content">
+          <span>小熊糖</span>
+          <span>胶原蛋白</span>
+          <span>蔓越莓</span>
+          <span>维生素</span>
+        </div>
+      </section>
+      <section class="hot-search">
+        <div class="hs-title">
+          热搜
+        </div>
+        <div class="hs-content">
+          <span>小熊糖</span>
+          <span>胶原蛋白</span>
+          <span>蔓越莓</span>
+          <span>维生素</span>
+          <span>小熊糖</span>
+          <span>胶原蛋白</span>
+          <span>蔓越莓</span>
+          <span>维生素</span>
+        </div>
+      </section>
   </div>
 </template>
 <script>
 export default {
   data () {
     return {}
+  },
+  methods: {
+    toHome () {
+      this.$router.go(-1)
+    }
   }
 }
 </script>
 <style lang="less" scoped>
 .search{
     // 头部搜索
-    background-color: #f2f2f2;
+    background-color: #fff;
   .header{
     width: 100%;
     // height: 45px;
-    // background-color: #f8f8f8;
+    background-color: #f8f8f8;
     // margin-bottom: 8px;
     display: flex;
     .h-img-box{
@@ -74,6 +106,62 @@ export default {
         color: #666;
         margin-top: 5px;
         display: inline-block;
+      }
+    }
+  }
+  .history{
+    padding: 0 5px;
+    // background-color: #fff;
+    .h-title{
+      width: 100%;
+      margin-top: 10px;
+      border-bottom: 1px solid #e4e4e4;
+      color: #666;
+      font-size: 14px;
+      line-height: 40px;
+      .del-icon{
+        width: 15px;
+        vertical-align: middle;
+        position: absolute;
+        right: 10px;
+        top: 60px;
+      }
+    }
+    .h-content{
+      margin-top: 10px;
+      width: 100%;
+      span{
+        display: inline-block;
+        background-color: #f2f2f2;
+        color: #333;
+        border-radius: 15px;
+        font-size: 12px;
+        padding: 5px 8px;
+        margin: 2% 1%;
+      }
+    }
+  }
+  .hot-search{
+    padding: 0 5px;
+    // background-color: #fff;
+    .hs-title{
+      margin-top: 10px;
+      border-bottom: 1px solid #e4e4e4;
+      color: #666;
+      font-size: 14px;
+      line-height: 40px;
+    }
+    .hs-content{
+      margin-top: 10px;
+      width: 100%;
+      span{
+        display: inline-block;
+        background-color: #f2f2f2;
+        color: #333;
+        border-radius: 15px;
+        font-size: 12px;
+        padding: 5px 8px;
+        margin: 2% 1%;
       }
     }
   }

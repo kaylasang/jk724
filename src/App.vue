@@ -38,4 +38,8 @@ p{
 h2{
   margin: 0;
 }
+img{
+  border: none;
+  vertical-align: middle;
+}
 </style>

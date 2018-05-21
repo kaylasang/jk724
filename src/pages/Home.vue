@@ -510,6 +510,10 @@ export default {
   }
   //底部列表
   .footer{
+    width: 100%;
+    position: fixed;
+    bottom: 0;
+    left: 0;
     border-bottom: 1px solid #ccc;
     .bottom-main-list{
       background-color: #fff;
@@ -528,6 +532,11 @@ export default {
         }
       }
     }
+  }
+  .fixed{
+    position: fixed;
+    top:0;
+    left: 0;
   }
 }
 </style>

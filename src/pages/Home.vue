@@ -132,67 +132,14 @@
  </div>
 </template>
 <script>
+import api from '@/api/home'
 export default {
   data () {
     return {
       // 菜单列表
-      menuList: [
-        {
-          id: 'menu01',
-          src: 'https://img.jk724.com/upload/201804/1804200001105710156181059733.png',
-          text: '我要创业',
-          href: 'https://wx.jk724.com/ac/gha'
-        },
-        {
-          id: 'menu02',
-          src: 'https://img.jk724.com/upload/201711/1711090019805710331192506285.png',
-          text: '健康解决方案',
-          href: 'https://wx.jk724.com/article/material-details/46d6b8d4-d487-4a48-b426-be3f781da5ad'
-        },
-        {
-          id: 'menu03',
-          src: 'https://img.jk724.com/upload/201711/1711090021005710335192554563.png',
-          text: '用户指南',
-          href: 'https://wx.jk724.com/marketingTools/FAQ'
-        },
-        {
-          id: 'menu04',
-          src: 'https://img.jk724.com/upload/201801/1801110006105710145183053721.png',
-          text: '商品分类',
-          href: 'https://wx.jk724.com/product-category'
-        }
-      ],
+      menuList: [],
       // 健康管理师推荐
-      teacherList: [
-        {
-          id: 'teacher01',
-          src: 'https://img.jk724.com/upload/201804/1804200007805710234113329176.jpg?x-oss-process=style/230',
-          name: '王旭峰工作室',
-          text: '营养男神',
-          href: 'https://wx.jk724.com/health-college/managers-home/a19d1c22-dfe2-4403-8a61-087d349e39bc'
-        },
-        {
-          id: 'teacher02',
-          src: 'https://img.jk724.com/upload/201804/1804200009705710075154320810.png?x-oss-process=style/230',
-          name: '梁芳利工作室',
-          text: '亲子营养师',
-          href: 'https://wx.jk724.com/health-college/managers-home/a19d1c22-dfe2-4403-8a61-087d349e39bc'
-        },
-        {
-          id: 'teacher03',
-          src: 'https://img.jk724.com/upload/201710/1710270007805710226120537189?x-oss-process=style/230',
-          name: '贾海燕工作室',
-          text: '专注母婴健康管理',
-          href: 'https://wx.jk724.com/health-college/managers-home/a19d1c22-dfe2-4403-8a61-087d349e39bc'
-        },
-        {
-          id: 'teacher04',
-          src: 'https://img.jk724.com/upload/201710/1710270007805710226120537189?x-oss-process=style/230',
-          name: '贾海燕工作室',
-          text: '专注母婴健康管理',
-          href: 'https://wx.jk724.com/health-college/managers-home/a19d1c22-dfe2-4403-8a61-087d349e39bc'
-        }
-      ],
+      teacherList: [],
       // 课程推荐
       lessonList: [
         {
@@ -292,6 +239,17 @@ export default {
         this.$router.push({name: href})
       }
     }
+  },
+  mounted () {
+    api.getMenuList().then(resp => {
+      this.menuList = resp.data.data.menuList
+      // console.log('数据获取到了:', resp.data.data.menuList)
+    })
+
+    api.getTeacherList().then(resp => {
+      this.teacherList = resp.data.data.teacherList
+      console.log('数据获取到了:', resp.data.data.teacherList)
+    })
   }
 }
 </script>

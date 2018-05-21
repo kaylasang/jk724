@@ -27,21 +27,9 @@
    <!-- 菜单栏 -->
    <section class="menu-tab">
      <ul class="menu-list">
-       <li class="menu-item">
-         <img src="../assets/recommend.png" alt="">
-         <p>我要创业</p>
-       </li>
-        <li class="menu-item">
-         <img src="../assets/expert.png" alt="">
-         <p>健康解决方案</p>
-       </li>
-        <li class="menu-item">
-         <img src="../assets/management.png" alt="">
-         <p>用户指南</p>
-       </li>
-        <li class="menu-item">
-         <img src="../assets/classify.png" alt="">
-         <p>商品分类</p>
+       <li @click="handleJump(menuItem.href)" class="menu-item" v-for="menuItem in menuList" :key="menuItem.id">
+         <img :src="menuItem.src" alt="">
+         <p>{{menuItem.text}}</p>
        </li>
      </ul>
    </section>
@@ -60,23 +48,13 @@
    <section class="teacher-intro">
      <h2 class="main-title">
        健康管理师推荐
-       <span class="more-intro">更多</span>
+       <span class="more-intro" @click="handleJump('https://www.baidu.com')">更多</span>
      </h2>
      <ul class="teacher-list">
-       <li class="teacher-item">
-         <img src="https://img.jk724.com/upload/201804/1804200007805710234113329176.jpg?x-oss-process=style/230" alt="">
-         <p class="teacher-name">王旭峰工作室</p>
-         <p class="t-goodat">营养男神</p>
-       </li>
-       <li class="teacher-item">
-         <img src="https://img.jk724.com/upload/201804/1804200009705710075154320810.png?x-oss-process=style/230" alt="">
-         <p class="teacher-name">梁芳利工作室</p>
-         <p class="t-goodat">亲子营养师</p>
-       </li>
-        <li class="teacher-item">
-         <img src="https://img.jk724.com/upload/201710/1710270007805710226120537189?x-oss-process=style/230" alt="">
-         <p class="teacher-name">贾海燕工作室</p>
-         <p class="t-goodat">专注母婴健康管理</p>
+       <li @click="handleJump(teacherItem.href)" class="teacher-item" v-for="teacherItem in teacherList" :key="teacherItem.id">
+         <img :src="teacherItem.src">
+         <p class="teacher-name">{{teacherItem.name}}</p>
+         <p class="t-goodat">{{teacherItem.text}}</p>
        </li>
      </ul>
    </section>
@@ -84,16 +62,12 @@
    <section class="lesson-intro">
      <h2 class="main-title">
        精选健康课程
-       <span class="more-intro">更多</span>
+       <span class="more-intro" @click="handleJump('https://www.baidu.com')">更多</span>
      </h2>
      <ul class="lesson-list">
-       <li class="lesson-item">
-         <img src="https://img.jk724.com/upload/201804/1804200001305710169184441008.jpg?x-oss-process=style/240_135" alt="">
-         <p class="lesson-main-text">23个国家共同倡导的健康理念724在路上</p>
-       </li>
-        <li class="lesson-item">
-         <img src="https://img.jk724.com/upload/201804/1804200000905710168184411071.jpg?x-oss-process=style/240_135" alt="">
-          <p class="lesson-main-text">健康724,幸福每一天!</p>
+       <li @click="handleJump(lessonItem.href)" class="lesson-item" v-for="lessonItem in lessonList" :key="lessonItem.id">
+         <img :src="lessonItem.src" alt="">
+         <p class="lesson-main-text">{{lessonItem.text}}</p>
        </li>
      </ul>
    </section>
@@ -101,60 +75,28 @@
    <section class="hot-goods-part">
      <h2 class="main-title">全球热卖</h2>
      <ul class="hot-goods-list">
-       <li class="hot-goods-item">
-         <img class="hot-goods-img" src="https://img.jk724.com/upload/201804/1804200004605710131172038274.jpg" alt="">
-         <p class="hot-goods-title">美洲独代品牌,跨境正品保证</p>
-       </li>
-       <li class="hot-goods-item">
-         <img class="hot-goods-img" src="https://img.jk724.com/upload/201804/1804200004405710132172254037.jpg" alt="">
-         <p class="hot-goods-title">与你相约,澳洲精致生活</p>
-       </li>
-       <li class="hot-goods-item">
-         <img class="hot-goods-img" src="https://img.jk724.com/upload/201804/1804200003605710134172406886.jpg" alt="">
-         <p class="hot-goods-title">15万营养师共同推荐的健康方案</p>
-       </li>
-       <li class="hot-goods-item">
-         <img class="hot-goods-img" src="https://img.jk724.com/upload/201804/1804200004005710135172525659.jpg" alt="">
-         <p class="hot-goods-title">道地原料,溯源直供</p>
-       </li>
-       <li class="hot-goods-item">
-         <img class="hot-goods-img" src="https://img.jk724.com/upload/201804/1804200004605710136172635461.jpg" alt="">
-         <p class="hot-goods-title">健康人生,品质有道</p>
-       </li>
-       <li class="hot-goods-item">
-         <img class="hot-goods-img" src="https://img.jk724.com/upload/201805/1805040011405710503155733384.jpg" alt="">
-         <p class="hot-goods-title">健康生活运动馆</p>
+       <li class="hot-goods-item" v-for="hotGoodItem in hotGoodList" :key="hotGoodItem.id">
+         <img class="hot-goods-img" :src="hotGoodItem.src" alt="">
+         <p class="hot-goods-title">{{hotGoodItem.text}}</p>
        </li>
      </ul>
    </section>
    <!-- 推荐商品 -->
    <section class="sale-goods-content">
      <!--商品分类 -->
-    <ul class="sale-model-list">
-      <li class="sale-model-item active">推荐</li>
-      <li class="sale-model-item">所有商品</li>
-      <li class="sale-model-item">自有品牌</li>
-      <li class="sale-model-item">魅力女人</li>
-      <li class="sale-model-item">基础营养</li>
-     </ul>
+    <h2 class="main-title">
+       热卖商品
+       <span class="more-intro" @click="handleJump('https://www.baidu.com')">更多</span>
+     </h2>
      <!--商品列表 -->
       <ul class="sale-goods-list">
-        <li class="sale-goods-item">
-          <img src="https://img.jk724.com/upload/201803/1803300004805712216170057754.jpg?x-oss-process=style/230" alt="">
-          <p class="sale-goods-name">白桃胶原蛋白果冻条5盒</p>
-          <p class="sale-goods-size">白桃胶原蛋白果冻条5盒</p>
+        <li class="sale-goods-item" v-for="saleGoodItem in saleGoodList" :key="saleGoodItem.id">
+          <img :src="saleGoodItem.src" alt="">
+          <p class="sale-goods-name">{{saleGoodItem.name}}</p>
+          <p class="sale-goods-size">{{saleGoodItem.size}}</p>
           <p class="sale-goods-price">
-            <span class="discount-price">¥468.00</span>
-            <span class="ori-price">¥490.00</span>
-          </p>
-        </li>
-        <li class="sale-goods-item">
-          <img src="https://img.jk724.com/upload/201803/1803300008705712222170132565.jpg?x-oss-process=style/230" alt="">
-          <p class="sale-goods-name">芒果胶原蛋白果冻条5盒</p>
-          <p class="sale-goods-size">芒果胶原蛋白果冻条5盒</p>
-          <p class="sale-goods-price">
-            <span class="discount-price">¥468.00</span>
-            <span class="ori-price">¥490.00</span>
+            <span class="discount-price">{{saleGoodItem.disprice}}</span>
+            <span class="ori-price">{{saleGoodItem.oriprice}}</span>
           </p>
         </li>
       </ul>
@@ -192,7 +134,164 @@
 <script>
 export default {
   data () {
-    return {}
+    return {
+      // 菜单列表
+      menuList: [
+        {
+          id: 'menu01',
+          src: 'https://img.jk724.com/upload/201804/1804200001105710156181059733.png',
+          text: '我要创业',
+          href: 'https://wx.jk724.com/ac/gha'
+        },
+        {
+          id: 'menu02',
+          src: 'https://img.jk724.com/upload/201711/1711090019805710331192506285.png',
+          text: '健康解决方案',
+          href: 'https://wx.jk724.com/article/material-details/46d6b8d4-d487-4a48-b426-be3f781da5ad'
+        },
+        {
+          id: 'menu03',
+          src: 'https://img.jk724.com/upload/201711/1711090021005710335192554563.png',
+          text: '用户指南',
+          href: 'https://wx.jk724.com/marketingTools/FAQ'
+        },
+        {
+          id: 'menu04',
+          src: 'https://img.jk724.com/upload/201801/1801110006105710145183053721.png',
+          text: '商品分类',
+          href: 'https://wx.jk724.com/product-category'
+        }
+      ],
+      // 健康管理师推荐
+      teacherList: [
+        {
+          id: 'teacher01',
+          src: 'https://img.jk724.com/upload/201804/1804200007805710234113329176.jpg?x-oss-process=style/230',
+          name: '王旭峰工作室',
+          text: '营养男神',
+          href: 'https://wx.jk724.com/health-college/managers-home/a19d1c22-dfe2-4403-8a61-087d349e39bc'
+        },
+        {
+          id: 'teacher02',
+          src: 'https://img.jk724.com/upload/201804/1804200009705710075154320810.png?x-oss-process=style/230',
+          name: '梁芳利工作室',
+          text: '亲子营养师',
+          href: 'https://wx.jk724.com/health-college/managers-home/a19d1c22-dfe2-4403-8a61-087d349e39bc'
+        },
+        {
+          id: 'teacher03',
+          src: 'https://img.jk724.com/upload/201710/1710270007805710226120537189?x-oss-process=style/230',
+          name: '贾海燕工作室',
+          text: '专注母婴健康管理',
+          href: 'https://wx.jk724.com/health-college/managers-home/a19d1c22-dfe2-4403-8a61-087d349e39bc'
+        },
+        {
+          id: 'teacher04',
+          src: 'https://img.jk724.com/upload/201710/1710270007805710226120537189?x-oss-process=style/230',
+          name: '贾海燕工作室',
+          text: '专注母婴健康管理',
+          href: 'https://wx.jk724.com/health-college/managers-home/a19d1c22-dfe2-4403-8a61-087d349e39bc'
+        }
+      ],
+      // 课程推荐
+      lessonList: [
+        {
+          id: 'lesson01',
+          src: 'https://img.jk724.com/upload/201804/1804200001305710169184441008.jpg?x-oss-process=style/240_135',
+          text: '23个国家共同倡导的健康理念724在路上',
+          href: 'https://www.baidu.com'
+        },
+        {
+          id: 'lesson02',
+          src: 'https://img.jk724.com/upload/201804/1804200000905710168184411071.jpg?x-oss-process=style/240_135',
+          text: '健康724,幸福每一天!',
+          href: 'https://www.baidu.com'
+        },
+        {
+          id: 'lesson03',
+          src: 'https://img.jk724.com/upload/201804/1804200000905710168184411071.jpg?x-oss-process=style/240_135',
+          text: '健康724,幸福每一天!',
+          href: 'https://www.baidu.com'
+        }
+      ],
+      // 全球热卖
+      hotGoodList: [
+        {
+          id: 'hg01',
+          src: 'https://img.jk724.com/upload/201804/1804200004605710131172038274.jpg',
+          text: '美洲独代品牌,跨境正品保证'
+        },
+        {
+          id: 'hg02',
+          src: 'https://img.jk724.com/upload/201804/1804200004405710132172254037.jpg',
+          text: '与你相约,澳洲精致生活'
+        },
+        {
+          id: 'hg03',
+          src: 'https://img.jk724.com/upload/201804/1804200003605710134172406886.jpg',
+          text: '15万营养师共同推荐的健康方案'
+        },
+        {
+          id: 'hg04',
+          src: 'https://img.jk724.com/upload/201804/1804200004005710135172525659.jpg',
+          text: '道地原料,溯源直供'
+        },
+        {
+          id: 'hg05',
+          src: 'https://img.jk724.com/upload/201804/1804200004605710136172635461.jpg',
+          text: '健康人生,品质有道'
+        },
+        {
+          id: 'hg06',
+          src: 'https://img.jk724.com/upload/201805/1805040011405710503155733384.jpg',
+          text: '健康生活运动馆'
+        }
+      ],
+      // 热卖商品
+      saleGoodList: [
+        {
+          id: 'sg01',
+          src: 'https://img.jk724.com/upload/201803/1803300004805712216170057754.jpg?x-oss-process=style/230',
+          name: '白桃胶原蛋白果冻条5盒',
+          size: '白桃胶原蛋白果冻条5盒',
+          disprice: '¥468.00',
+          oriprice: '¥498.00'
+        },
+        {
+          id: 'sg02',
+          src: 'https://img.jk724.com/upload/201803/1803300008705712222170132565.jpg?x-oss-process=style/230',
+          name: '芒果胶原蛋白果冻条5盒',
+          size: '芒果胶原蛋白果冻条5盒',
+          disprice: '¥468.00',
+          oriprice: '¥498.00'
+        },
+        {
+          id: 'sg03',
+          src: 'https://img.jk724.com/upload/201803/1803300004805712216170057754.jpg?x-oss-process=style/230',
+          name: '白桃胶原蛋白果冻条5盒',
+          size: '白桃胶原蛋白果冻条5盒',
+          disprice: '¥468.00',
+          oriprice: '¥498.00'
+        },
+        {
+          id: 'sg04',
+          src: 'https://img.jk724.com/upload/201803/1803300008705712222170132565.jpg?x-oss-process=style/230',
+          name: '芒果胶原蛋白果冻条5盒',
+          size: '芒果胶原蛋白果冻条5盒',
+          disprice: '¥468.00',
+          oriprice: '¥498.00'
+        }
+      ]
+    }
+  },
+  methods: {
+    handleJump (href = '') {
+      if (href.indexOf('http://') === 0 || href.indexOf('https://') === 0) {
+        window.location.href = href
+      } else {
+        this.$router.push({name: href})
+      }
+    }
   }
 }
 </script>
@@ -288,7 +387,7 @@ export default {
   .menu-tab{
     background-color: #fff;
     height: 99px;
-   margin-bottom: 10px;
+    margin-bottom: 10px;
     .menu-list{
       display: flex;
       .menu-item{
@@ -296,14 +395,16 @@ export default {
         font-size: 12px;
         text-align: center;
         color: #666;
+        padding: 12px 0;
         img{
           width: 45px;
-          padding: 15px 20px 10px 12px;
+          border-radius: 50%;
+          margin-bottom: 5px;
         }
       }
     }
   }
-  //运动版块
+  // 运动版块
   .sport-part{
     background-color: #fff;
     .sport-img-list{
@@ -351,9 +452,11 @@ export default {
       border-top: 1px solid #e4e4e4;
       border-bottom: 1px solid #e4e4e4;
       display: flex;
+      overflow-x: scroll;
+      overflow-y: hidden;
       .teacher-item{
         border-right: 1px solid #e4e4e4;
-        flex: 1;
+        flex: 1 0 33.33%;
         text-align: center;
         img{
           width: 54px;
@@ -403,13 +506,15 @@ export default {
     }
     .lesson-list{
       display: flex;
-      justify-content: space-around;
       margin-left: 5px;
+      overflow-x: scroll;
+      overflow-y: hidden;
       .lesson-item{
-        flex: 1;
+        flex: 0 0 50%;
         margin: 0 2px;
         img{
           width:100%;
+          margin-bottom: 5px;
         }
         .lesson-main-text{
           font-size: 13px;
@@ -451,30 +556,33 @@ export default {
   // 推荐商品
   .sale-goods-content{
     margin-bottom: 10px;
-    .sale-model-list{
-      display: flex;
-      background-color: #fff;
-      width: 100%;
-      border-top: 1px solid #f2f2f2;
-      border-bottom: 1px solid #f2f2f2;
-      margin-bottom: 10px;
-      .sale-model-item{
-        flex: 1;
-        margin: 0 2px;
-        font-size: 14px;
-        color: #4f4f4f;
-        line-height: 45px;
-        text-align: center;
-      }
-      .active{
-        border-bottom: 2px solid #1aac19;
+     .main-title{
+       background-color: #fff;
+      line-height: 40px;
+      font-size: 16px;
+      color: #333;
+      font-weight: bold;
+      position: relative;
+      text-align: left;
+      padding: 0 10px;
+      .more-intro{
+        position: absolute;
+        top: 0;
+        right: 10px;
+        color: #999;
+        width: 3em;
+        font-size: 13px;
+        background: url(../assets/more.png) no-repeat right center;
+        background-size: auto 12px;
+        font-weight: normal;
       }
     }
     .sale-goods-list{
         width: 100%;
         display: flex;
+        flex-wrap: wrap;
         .sale-goods-item{
-          flex: 40%;
+          flex: 1 0 40%;
           margin: 5px;
           padding: 5px;
           background-color: #fff;
@@ -501,14 +609,14 @@ export default {
         }
       }
   }
-  //底部图片
+  // 底部图片
   .bottom-img-box{
     width: 100%;
     img{
       width: 100%;
     }
   }
-  //底部列表
+  // 底部列表
   .footer{
     width: 100%;
     position: fixed;

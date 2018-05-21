@@ -141,94 +141,11 @@ export default {
       // 健康管理师推荐
       teacherList: [],
       // 课程推荐
-      lessonList: [
-        {
-          id: 'lesson01',
-          src: 'https://img.jk724.com/upload/201804/1804200001305710169184441008.jpg?x-oss-process=style/240_135',
-          text: '23个国家共同倡导的健康理念724在路上',
-          href: 'https://www.baidu.com'
-        },
-        {
-          id: 'lesson02',
-          src: 'https://img.jk724.com/upload/201804/1804200000905710168184411071.jpg?x-oss-process=style/240_135',
-          text: '健康724,幸福每一天!',
-          href: 'https://www.baidu.com'
-        },
-        {
-          id: 'lesson03',
-          src: 'https://img.jk724.com/upload/201804/1804200000905710168184411071.jpg?x-oss-process=style/240_135',
-          text: '健康724,幸福每一天!',
-          href: 'https://www.baidu.com'
-        }
-      ],
+      lessonList: [],
       // 全球热卖
-      hotGoodList: [
-        {
-          id: 'hg01',
-          src: 'https://img.jk724.com/upload/201804/1804200004605710131172038274.jpg',
-          text: '美洲独代品牌,跨境正品保证'
-        },
-        {
-          id: 'hg02',
-          src: 'https://img.jk724.com/upload/201804/1804200004405710132172254037.jpg',
-          text: '与你相约,澳洲精致生活'
-        },
-        {
-          id: 'hg03',
-          src: 'https://img.jk724.com/upload/201804/1804200003605710134172406886.jpg',
-          text: '15万营养师共同推荐的健康方案'
-        },
-        {
-          id: 'hg04',
-          src: 'https://img.jk724.com/upload/201804/1804200004005710135172525659.jpg',
-          text: '道地原料,溯源直供'
-        },
-        {
-          id: 'hg05',
-          src: 'https://img.jk724.com/upload/201804/1804200004605710136172635461.jpg',
-          text: '健康人生,品质有道'
-        },
-        {
-          id: 'hg06',
-          src: 'https://img.jk724.com/upload/201805/1805040011405710503155733384.jpg',
-          text: '健康生活运动馆'
-        }
-      ],
+      hotGoodList: [],
       // 热卖商品
-      saleGoodList: [
-        {
-          id: 'sg01',
-          src: 'https://img.jk724.com/upload/201803/1803300004805712216170057754.jpg?x-oss-process=style/230',
-          name: '白桃胶原蛋白果冻条5盒',
-          size: '白桃胶原蛋白果冻条5盒',
-          disprice: '¥468.00',
-          oriprice: '¥498.00'
-        },
-        {
-          id: 'sg02',
-          src: 'https://img.jk724.com/upload/201803/1803300008705712222170132565.jpg?x-oss-process=style/230',
-          name: '芒果胶原蛋白果冻条5盒',
-          size: '芒果胶原蛋白果冻条5盒',
-          disprice: '¥468.00',
-          oriprice: '¥498.00'
-        },
-        {
-          id: 'sg03',
-          src: 'https://img.jk724.com/upload/201803/1803300004805712216170057754.jpg?x-oss-process=style/230',
-          name: '白桃胶原蛋白果冻条5盒',
-          size: '白桃胶原蛋白果冻条5盒',
-          disprice: '¥468.00',
-          oriprice: '¥498.00'
-        },
-        {
-          id: 'sg04',
-          src: 'https://img.jk724.com/upload/201803/1803300008705712222170132565.jpg?x-oss-process=style/230',
-          name: '芒果胶原蛋白果冻条5盒',
-          size: '芒果胶原蛋白果冻条5盒',
-          disprice: '¥468.00',
-          oriprice: '¥498.00'
-        }
-      ]
+      saleGoodList: []
     }
   },
   methods: {
@@ -248,7 +165,22 @@ export default {
 
     api.getTeacherList().then(resp => {
       this.teacherList = resp.data.data.teacherList
-      console.log('数据获取到了:', resp.data.data.teacherList)
+      // console.log('数据获取到了:', resp.data.data.teacherList)
+    })
+
+    api.getLessonList().then(resp => {
+      this.lessonList = resp.data.data.lessonList
+      // console.log('数据获取到了:', resp.data.data.lessonList)
+    })
+
+    api.getHotGoodList().then(resp => {
+      this.hotGoodList = resp.data.data.hotGoodList
+      // console.log('数据获取到了:', resp.data.data.hotGoodList)
+    })
+
+    api.getSaleGoodList().then(resp => {
+      this.saleGoodList = resp.data.data.saleGoodList
+      // console.log('数据获取到了:', resp.data.data.saleGoodList)
     })
   }
 }

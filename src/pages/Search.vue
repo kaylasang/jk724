@@ -6,12 +6,15 @@
             </div>
         <div class="text-inp">
         <img class="search-icon" src="../assets/search.png" />
-        <input type="text" placeholder="搜索商品" />
+        <input type="text" v-model="keyword" placeholder="搜索商品  小熊糖、维生素、美白" />
         </div>
         <div @click="toHome" class="cancelBtn-box">
          <span class="cancelBtn">取消</span>
         </div>
       </header>
+      <div class="searchwordsbox" v-if="searchKeywordsList.length > 0">
+        <div class="searchKeywordsItem" @click="handleGoodJump(searchKeywordsItem.name)" v-for="(searchKeywordsItem,index) in searchKeywordsList" :key="index">{{searchKeywordsItem.name}}</div>
+      </div>
       <section class="history">
         <div class="h-title">
           历史搜索:
@@ -32,9 +35,12 @@
   </div>
 </template>
 <script>
+import api from '@/api/home'
 export default {
   data () {
     return {
+      keyword: '',
+      searchKeywordsList: [],
       histList: [
         {
           id: 'hist1',
@@ -88,8 +94,27 @@ export default {
   methods: {
     toHome () {
       this.$router.go(-1)
+    },
+    handleGoodJump (val) {
+      // console.log(1)
+      location.href = 'https://wxuat.jk724.com/product-brand?keyword=' + val
+    }
+  },
+  watch: {
+    keyword: function (val, oldVal) {
+      if (val === '') {
+        this.searchKeywordsList = []
+        return ''
+      } else {
+        api.getSearch(val).then(resp => {
+          // console.log(resp)
+          this.searchKeywordsList = resp.data.result
+        })
+      }
     }
   }
+  // mounted: {
+  // }
 }
 </script>
 <style lang="less" scoped>
@@ -130,10 +155,10 @@ export default {
         height: 15px;
       }
       input{
-        height: 100%;
+        height: 30px;
         width: 100%;
         border-radius: 4px;
-        padding-left: 20px;
+        padding-left: 25px;
         box-sizing: border-box;
       }
     }
@@ -143,9 +168,24 @@ export default {
         line-height: 1.8;
         font-size: 14px;
         color: #666;
-        margin-top: 5px;
+        margin-top: 12px;
         display: inline-block;
       }
+    }
+  }
+  .searchwordsbox{
+    z-index: 999;
+    background-color: #fff;
+    position: absolute;
+    top: 50px;
+    left: 0;
+    right: 0;
+    min-height: 500px;
+    padding: 0 10px;
+    .searchKeywordsItem{
+      line-height: 40px;
+      font-size: 16px;
+      color: #666;
     }
   }
   .history{
@@ -160,10 +200,8 @@ export default {
       line-height: 40px;
       .del-icon{
         width: 15px;
-        vertical-align: middle;
-        position: absolute;
-        right: 10px;
-        top: 60px;
+       float: right;
+       margin-top: 13px;
       }
     }
     .h-content{

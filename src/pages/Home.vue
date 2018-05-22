@@ -132,7 +132,7 @@
  </div>
 </template>
 <script>
-import api from '@/api/home'
+import api from '@/api'
 export default {
   data () {
     return {
@@ -158,27 +158,27 @@ export default {
     }
   },
   mounted () {
-    api.getMenuList().then(resp => {
+    api.home.getMenuList().then(resp => {
       this.menuList = resp.data.data.menuList
       // console.log('数据获取到了:', resp.data.data.menuList)
     })
 
-    api.getTeacherList().then(resp => {
+    api.home.getTeacherList().then(resp => {
       this.teacherList = resp.data.data.teacherList
       // console.log('数据获取到了:', resp.data.data.teacherList)
     })
 
-    api.getLessonList().then(resp => {
+    api.home.getLessonList().then(resp => {
       this.lessonList = resp.data.data.lessonList
       // console.log('数据获取到了:', resp.data.data.lessonList)
     })
 
-    api.getHotGoodList().then(resp => {
+    api.home.getHotGoodList().then(resp => {
       this.hotGoodList = resp.data.data.hotGoodList
       // console.log('数据获取到了:', resp.data.data.hotGoodList)
     })
 
-    api.getSaleGoodList().then(resp => {
+    api.home.getSaleGoodList().then(resp => {
       this.saleGoodList = resp.data.data.saleGoodList
       // console.log('数据获取到了:', resp.data.data.saleGoodList)
     })

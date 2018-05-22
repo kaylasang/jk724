@@ -35,7 +35,7 @@
   </div>
 </template>
 <script>
-import api from '@/api/home'
+import api from '@/api'
 export default {
   data () {
     return {
@@ -106,7 +106,7 @@ export default {
         this.searchKeywordsList = []
         return ''
       } else {
-        api.getSearch(val).then(resp => {
+        api.search.getSearch(val).then(resp => {
           // console.log(resp)
           this.searchKeywordsList = resp.data.result
         })

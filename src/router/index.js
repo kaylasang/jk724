@@ -2,7 +2,7 @@ import Vue from 'vue'
 import Router from 'vue-router'
 import Home from '@/pages/Home'
 import Search from '@/pages/Search'
-import GoodContent from '@/pages/GoodContent'
+import goodsDetail from '@/pages/GoodsDetail'
 import Login from '@/pages/Login'
 import User from '@/pages/User'
 
@@ -22,9 +22,9 @@ export default new Router({
       component: Search
     },
     {
-      path: '/goodContent',
-      name: 'goodContent',
-      component: GoodContent
+      path: '/goodsDetail/:id',
+      name: 'goodsDetail',
+      component: goodsDetail
     },
     {
       path: '/login',

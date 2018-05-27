@@ -90,7 +90,7 @@
      </h2>
      <!--商品列表 -->
       <ul class="sale-goods-list">
-        <li class="sale-goods-item" v-for="saleGoodItem in saleGoodList" :key="saleGoodItem.id">
+        <router-link tag="li" :to="{name:'goodsDetail',query:{goodsid:saleGoodItem.id},params:{id:124}}" class="sale-goods-item" v-for="saleGoodItem in saleGoodList" :key="saleGoodItem.id">
           <img :src="saleGoodItem.src" alt="">
           <p class="sale-goods-name">{{saleGoodItem.name}}</p>
           <p class="sale-goods-size">{{saleGoodItem.size}}</p>
@@ -98,42 +98,23 @@
             <span class="discount-price">{{saleGoodItem.disprice}}</span>
             <span class="ori-price">{{saleGoodItem.oriprice}}</span>
           </p>
-        </li>
+        </router-link>
       </ul>
    </section>
    <!-- 底部图片 -->
    <div class="bottom-img-box">
      <img src="https://img.jk724.com/upload/201706/1706300000705710000100254991.png" alt="">
    </div>
-   <footer class="footer">
-     <ul class="bottom-main-list">
-       <li class="bottom-main-item">
-         <img src="../assets/home_not.png" alt="">
-         <p>首页</p>
-       </li>
-       <li class="bottom-main-item">
-         <img src="../assets/school_not.png" alt="">
-         <p>健康课堂</p>
-       </li>
-        <li class="bottom-main-item">
-         <img src="../assets/find_not.png" alt="">
-         <p>发现</p>
-       </li>
-        <li class="bottom-main-item">
-         <img src="../assets/shopping_not.png" alt="">
-         <p>购物车</p>
-       </li>
-        <li class="bottom-main-item">
-         <img src="../assets/my_not.png" alt="">
-         <p>我的</p>
-       </li>
-     </ul>
-   </footer>
+  <my-footer></my-footer>
  </div>
 </template>
 <script>
 import api from '@/api'
+import myFooter from '@/components/footer'
 export default {
+  components: {
+    myFooter
+  },
   data () {
     return {
       // 菜单列表
@@ -507,30 +488,6 @@ export default {
     }
   }
   // 底部列表
-  .footer{
-    width: 100%;
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    border-bottom: 1px solid #ccc;
-    .bottom-main-list{
-      background-color: #fff;
-      display: flex;
-      width: 100%;
-      padding-bottom: 5px;
-      .bottom-main-item{
-        flex: 1;
-        text-align: center;
-        img{
-          width: 23px;
-          margin: 8px auto 2px;
-        }
-        p{
-          font-size: 10px;
-        }
-      }
-    }
-  }
   .fixed{
     position: fixed;
     top:0;
